@@ -22,16 +22,16 @@ async def ping(ctx):
 
 @bot.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
-	responses = ['It Is Certain',
-	'Without A Doubt',
-	'Yes Definitely',
-	'You May Rely On It',
-	'Most Likely',
-	'Ask Again Later',
-	'Nope',
-	'Cannot Tell Right Now']
+    responses = ['It Is Certain',
+    'Without A Doubt',
+    'Yes Definitely',
+    'You May Rely On It',
+    'Most Likely',
+    'Ask Again Later',
+    'Nope',
+    'Cannot Tell Right Now']
         
-        await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
+    await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
 @bot.command()
 async def rank(ctx):
