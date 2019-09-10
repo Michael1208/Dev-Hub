@@ -33,4 +33,11 @@ async def _8ball(ctx, *, question):
         
         await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
+@bot.command()
+async def rank(ctx):
+    embed = discord.Embed(title="Rank!", color=0x0084FD)
+    embed.add_field(name="Level", value=f"{user['lvl']}")
+    embed.add_field(name="XP", value=f"{user['xp']}")
+    await ctx.send(embed=embed)
+
 bot.run(TOKEN)
