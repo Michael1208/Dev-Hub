@@ -4,7 +4,7 @@ from discord.ext import commands
 import asyncio
 import time
 
-bot = commands.Bot(command_prefix='dh')
+bot = commands.Bot(command_prefix='>')
 TOKEN = os.environ['TOKEN']
 
 @bot.event
