@@ -30,5 +30,7 @@ async def _8ball(ctx, *, question):
 	'Ask Again Later',
 	'Nope',
 	'Cannot Tell Right Now']
+        
+        await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
 bot.run(TOKEN)
