@@ -16,8 +16,19 @@ async def on_ready():
 @bot.command()
 async def ping(ctx):
     start = time.monotonic()
-    embed = discord.Embed(title="DevHub's Ping!", color=0x0084FD)
+    embed = discord.Embed(title="Dragon's Ping!", color=0x0084FD)
     embed.add_field(name="latency", value="{} ms".format(int(ctx.bot.latency*1000)))
     await ctx.send(embed=embed)
+
+@bot.command(aliases=['8ball'])
+async def _8ball(ctx, *, question):
+	responses = ['It Is Certain',
+	'Without A Doubt',
+	'Yes Definitely',
+	'You May Rely On It',
+	'Most Likely',
+	'Ask Again Later',
+	'Nope',
+	'Cannot Tell Right Now']
 
 bot.run(TOKEN)
