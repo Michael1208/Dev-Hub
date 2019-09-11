@@ -1,4 +1,4 @@
-Noimport discord 
+import discord 
 import os
 from discord.ext import commands
 import asyncio
@@ -44,15 +44,15 @@ async def rank(ctx):
 @bot.command(pass_context=True, brief="DO THIS BEFORE ANYTHING ELSE! (ONLY ONCE)", aliases=['reg'])
 async def register(ctx):
     id = str(ctx.message.author.id)
-if id not in amounts:
-amounts[id] = START_BALANCE
-await ctx.send(ctx.message.author.mention + ", You are now registered")
-print(id + " just made an account")
-print("have to take a dump")
-_save()
-else:
-await ctx.send(ctx.message.author.mention + ", You already have an account")
-print(id + " just tried to make an account, but already had one")
+    if id not in amounts:
+        amounts[id] = START_BALANCE
+        await ctx.send(ctx.message.author.mention + ", You are now registered")
+        print(id + " just made an account")
+        print("have to take a dump")
+        _save()
+    else:
+        await ctx.send(ctx.message.author.mention + ", You already have an account")
+        print(id + " just tried to make an account, but already had one")
 
 
 bot.run(TOKEN)
