@@ -9,12 +9,9 @@ bot = commands.Bot(command_prefix='n!')
 bot.remove_command('help')
 
 @bot.event
-async def on_ready():
-        print("Neon has started!")
-
-@tasks.loop(seconds=15)
-async def change_status():
-  await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name="n!help | n!info"))
+async def on_ready():        
+    await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name="n!help | n!info"))
+    print("Neon has started!")
     
 @bot.command()
 async def ping(ctx):
