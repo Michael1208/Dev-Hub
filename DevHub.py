@@ -10,13 +10,11 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-        bot.status = cycle(['Neon Premium', 'n!help','Get Me By Boosting'])    
-        change_status.start()                   
         print("Neon has started!")
 
 @tasks.loop(seconds=15)
 async def change_status():
-  await bot.change_presence(activity=discord.Game(next(bot.status)))
+  await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name="n!help | n!info"))
     
 @bot.command()
 async def ping(ctx):
@@ -28,11 +26,19 @@ async def ping(ctx):
 @bot.command()
 async def help(ctx):
     embed=discord.Embed(title="Neon Premium", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
-    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/616619124730363924/6721a098ceee307c2a32ba8de4332ff0.png?")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/618440592459956224/621380992988348421/national.jpg")
     embed.add_field(name="Music" , value="Music Commands", inline=True)
     embed.add_field(name="Commands Here", value="Command", inline=True)
     embed.add_field(name="Economy", value="Economy Commands" , inline=True)
     embed.add_field(name="Commands Here", value="Command", inline=True)
+    embed.set_footer(text="Neon™ Premium Bot")
+    await ctx.send(embed=embed)
+ 
+@bot.command()
+async def info(ctx):
+    embed=discord.Embed(title="How To Get Neon Premium", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
+    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/618440592459956224/621380992988348421/national.jpg")
+    embed.add_field(name="How To Get Neon Premium" , value="Neon Premium Can Be Recieved By Boosting The Support Server Link Above Premium Will Offer Commands That The Normal Bot Doesn't Such As Economy And Music", inline=True)
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
 
