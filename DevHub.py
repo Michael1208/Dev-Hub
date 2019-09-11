@@ -105,4 +105,18 @@ async def play(ctx, url: str):
     await ctx.send(f"Playing: {nname[0]}")
     print("playing\n")
 
+    @bot.command(pass_context=True, brief="DO THIS BEFORE ANYTHING ELSE! (ONLY ONCE)", aliases=['reg'])
+    async def register(ctx):
+        id = str(ctx.message.author.id)
+        if id not in amounts:
+            amounts[id] = START_BALANCE
+            await ctx.send(ctx.message.author.mention + ", You are now registered")
+            print(id + " just made an account")
+            print("have to take a dump")
+            _save()
+        else:
+            await ctx.send(ctx.message.author.mention + ", You already have an account")
+            print(id + " just tried to make an account, but already had one")
+
+
 bot.run(TOKEN)
