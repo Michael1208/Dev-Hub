@@ -6,7 +6,6 @@ from discord.ext import commands, tasks
 from itertools import cycle
 
 bot = commands.Bot(command_prefix='n!')
-TOKEN = os.environ['TOKEN']
 bot.remove_command('help')
 
 @bot.event
@@ -36,3 +35,5 @@ async def help(ctx):
     embed.add_field(name="Commands Here", value="Command", inline=True)
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
+
+bot.run(os.environ[TOKEN])
