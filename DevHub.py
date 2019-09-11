@@ -7,6 +7,7 @@ from itertools import cycle
 
 bot = commands.Bot(command_prefix='n!')
 TOKEN = os.environ['TOKEN']
+bot.remove_command('help')
 
 @bot.event
 async def on_ready():
