@@ -3,7 +3,6 @@ import os
 from discord.ext import commands
 import asyncio
 import time
-import youtube_dl
 
 bot = commands.Bot(command_prefix='>')
 TOKEN = os.environ['TOKEN']
