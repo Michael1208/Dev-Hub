@@ -9,61 +9,29 @@ TOKEN = os.environ['TOKEN']
 
 @bot.event
 async def on_ready():
-    print('Bot is ready!')
-    print(bot.user.name)
-    print(bot.user.id)
+        bot.status = cycle(['Neon Premium', 'n!help','Get Me By Boosting'])    
+        change_status.start()                   
+        print("Neon has started!")
+
+@tasks.loop(seconds=15)
+async def change_status():
+  await bot.change_presence(activity=discord.Game(next(bot.status)))
     
 @bot.command()
 async def ping(ctx):
     start = time.monotonic()
-    embed = discord.Embed(title="Dragon's Ping!", color=0x0084FD)
+    embed = discord.Embed(title="Neon Premium's Ping!", color=0x0084FD)
     embed.add_field(name="latency", value="{} ms".format(int(ctx.bot.latency*1000)))
     await ctx.send(embed=embed)
-
-@bot.command(aliases=['8ball'])
-async def _8ball(ctx, *, question):
-    responses = ['It Is Certain',
-    'Without A Doubt',
-    'Yes Definitely',
-    'You May Rely On It',
-    'Most Likely',
-    'Ask Again Later',
-    'Nope',
-    'Cannot Tell Right Now']
-        
-    await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
-
+ 
 @bot.command()
-async def rank(ctx):
-    embed = discord.Embed(title="Rank!", color=0x0084FD)
-    embed.add_field(name="Level", value=f"{user['lvl']}")
-    embed.add_field(name="XP", value=f"{user['xp']}")
+async def help(ctx):
+    embed=discord.Embed(title="Join The Support Server ", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
+    embed.set_author(name="Neon Premium - Help",, icon_url="https://cdn.discordapp.com/avatars/616619124730363924/6721a098ceee307c2a32ba8de4332ff0.png?")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/616619124730363924/6721a098ceee307c2a32ba8de4332ff0.png?")
+    embed.add_field(name=Music, value=Music Commands, inline=True)
+    embed.add_field(name=Commands Here, value=Command, inline=True)
+    embed.add_field(name=Economy, value=Economy Commands, inline=True)
+    embed.add_field(name=Commands Here, value=Command, inline=True)
+    embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
-
-@bot.command(pass_context=True, brief="DO THIS BEFORE ANYTHING ELSE! (ONLY ONCE)", aliases=['reg'])
-async def register(ctx):
-    id = str(ctx.message.author.id)
-    if id not in amounts:
-        amounts[id] = START_BALANCE
-        await ctx.send(ctx.message.author.mention + ", You are now registered")
-        print(id + " just made an account")
-        print("have to take a dump")
-        _save()
-    else:
-        await ctx.send(ctx.message.author.mention + ", You already have an account")
-        print(id + " just tried to make an account, but already had one")
-
-@bot.command(pass_context=True, brief="Shows your balance", aliases=['bal', 'b'])
-# @commands.cooldown(1, 30, commands.BucketType.user) this is the cooldown
-async def balance(ctx):
-        id = str(ctx.message.author.id)
-        if id in amounts:
-            await ctx.send(ctx.message.author.mention + " has {} ".format(amounts[id]) + CURRENCY_NAME + " in the bank")
-            print("Checked balance of " + id)
-        else:
-            await ctx.send("You do not have an account")
-            print("Tried to check balance, but no account")
-
-
-
-bot.run(TOKEN)
