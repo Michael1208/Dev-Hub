@@ -53,5 +53,17 @@ async def register(ctx):
         await ctx.send(ctx.message.author.mention + ", You already have an account")
         print(id + " just tried to make an account, but already had one")
 
+@bot.command(pass_context=True, brief="Shows your balance", aliases=['bal', 'b'])
+    # @commands.cooldown(1, 30, commands.BucketType.user) this is the cooldown
+    async def balance(ctx):
+        id = str(ctx.message.author.id)
+        if id in amounts:
+            await ctx.send(ctx.message.author.mention + " has {} ".format(amounts[id]) + CURRENCY_NAME + " in the bank")
+            print("Checked balance of " + id)
+        else:
+            await ctx.send("You do not have an account")
+            print("Tried to check balance, but no account")
+
+
 
 bot.run(TOKEN)
