@@ -26,8 +26,7 @@ async def ping(ctx):
  
 @bot.command()
 async def help(ctx):
-    embed=discord.Embed(title="Join The Support Server ", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
-    embed.set_author(name="Neon Premium - Help",, icon_url="https://cdn.discordapp.com/avatars/616619124730363924/6721a098ceee307c2a32ba8de4332ff0.png?")
+    embed=discord.Embed(title="Neon Premium", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/616619124730363924/6721a098ceee307c2a32ba8de4332ff0.png?")
     embed.add_field(name=Music, value=Music Commands, inline=True)
     embed.add_field(name=Commands Here, value=Command, inline=True)
