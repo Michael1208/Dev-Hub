@@ -39,4 +39,16 @@ async def info(ctx):
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
 
+@bot.command()
+async def say(ctx, content):
+    if content == ["@everyone"]:
+        await ctx.send("You cannot mention **@**everyone, silly. I don't want to get banned.")
+        pass
+    elif content == ["@here"]:
+        await ctx.send("You cannot mention **@**here, silly. I don't want to get banned.")
+        pass
+    else:
+        await ctx.send(content)
+        await ctx.message.delete()
+
 bot.run(os.environ['TOKEN'])
