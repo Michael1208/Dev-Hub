@@ -42,10 +42,10 @@ async def info(ctx):
 @bot.command()
 async def say(ctx, content):
     if content == ["@everyone"]:
-        await ctx.send("You cannot mention **@**everyone, silly. I don't want to get banned.")
+        await ctx.send("Please dont try and mention everyone")
         pass
     elif content == ["@here"]:
-        await ctx.send("You cannot mention **@**here, silly. I don't want to get banned.")
+        await ctx.send("Please dont try and mention here.")
         pass
     else:
         await ctx.send(content)
