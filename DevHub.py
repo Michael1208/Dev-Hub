@@ -39,4 +39,4 @@ async def info(ctx):
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
 
-bot.run(TOKEN)
+bot.run(os.environ['TOKEN'])
