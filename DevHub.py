@@ -33,7 +33,7 @@ async def help(ctx):
  
 @bot.command()
 async def info(ctx):
-    embed=discord.Embed(title="How To Get Neon Premium", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
+    embed=discord.Embed(title="Click To Join Support Server", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/618440592459956224/621380992988348421/national.jpg")
     embed.add_field(name="How To Get Neon Premium" , value="Neon Premium Can Be Recieved By Boosting The Support Server Link Above Premium Will Offer Commands That The Normal Bot Doesn't Such As Economy And Music", inline=True)
     embed.set_footer(text="Neon™ Premium Bot")
