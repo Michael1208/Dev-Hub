@@ -45,8 +45,7 @@ async def info(ctx):
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
 
- @bot.command()
-
+@bot.command()
 @commands.check(owner)
 async def servers(ctx):
     string = "\n".join([f"Server: {g.name} Users: {len(g.members)}" for g in bot.guilds])
