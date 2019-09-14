@@ -12,12 +12,15 @@ bot.remove_command('help')
 async def on_ready():        
     await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name="n!help | n!info"))
     print("Neon has started!")
+
+def booster(ctx):
+    return ctx.author.id in (349499497774055429, 505366642230951984, 578978159488270358)
     
 @bot.command()
 async def ping(ctx):
     start = time.monotonic()
     embed = discord.Embed(title="Neon Premium's Ping!", color=0x0084FD)
-    embed.add_field(name="latency", value="{} ms".format(int(ctx.bot.latency*1000)))
+    embed.add_field(name="Ping Latency", value="{} ms".format(int(ctx.bot.latency*1000)))
     await ctx.send(embed=embed)
  
 @bot.command()
