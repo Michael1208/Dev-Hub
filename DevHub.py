@@ -15,6 +15,9 @@ async def on_ready():
 
 def booster(ctx):
     return ctx.author.id in (349499497774055429, 505366642230951984, 578978159488270358)
+
+def owner(ctx):
+    return ctx.author.id in (349499497774055429, 505366642230951984)
     
 @bot.command()
 async def ping(ctx):
@@ -41,5 +44,16 @@ async def info(ctx):
     embed.add_field(name="How To Get Neon Premium" , value="Neon Premium Can Be Recieved By Boosting The Support Server Link Above Premium Will Offer Commands That The Normal Bot Doesn't Such As Economy And Music", inline=True)
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
+
+ @bot.command()
+
+@commands.check(owner)
+async def servers(ctx):
+    string = "\n".join([f"Server: {g.name} Users: {len(g.members)}" for g in bot.guilds])
+    await ctx.send(f"I'm Currently In These Severs- \n {string}")
+@servers.error
+async def servers_error(ctx, error):
+    if isinstance(error, commands.CheckFailure):
+        await ctx.send("Error Bot Developers Only")   
 
 bot.run(os.environ['TOKEN'])
