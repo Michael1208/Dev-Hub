@@ -31,7 +31,7 @@ def checkbot(ctx):
 @bot.event
 async def on_command_error(ctx, error):
     if type(error).__name__ == "CantDoThatCommand":
-        await ctx.send("Premium required..."):
+        await ctx.send("Premium required...")
             
         
 @bot.command()
