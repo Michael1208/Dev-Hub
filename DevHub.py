@@ -22,9 +22,9 @@ def owner(ctx):
 @bot.check
 async def boost(ctx):
     if ctx.message.author.id not in (349499497774055429, 505366642230951984, 578978159488270358):
-    return await ctx.channel.send("Premium Required Type n!info For Details")
-    return False
-    return True
+        return await ctx.channel.send("Premium Required Type n!info For Details")
+        return False
+        return True
  
 @bot.command()
 @commands.check(boost)
