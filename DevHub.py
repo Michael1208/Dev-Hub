@@ -25,13 +25,13 @@ class CantDoThatCommand(commands.CommandError):
 @bot.check
 def boost(ctx):
     if ctx.message.author.id not in (349499497774055429, 505366642230951984, 578978159488270358):
-        raise CantDoThatCommand("You dont have premium")
+        raise CantDoThatCommand("Premium Required Type n!info")
     return True
 
 @bot.event
 async def on_command_error(ctx, error):
     if type(error).__name__ == "CantDoThatCommand":
-        await ctx.send("Premium required...")
+        await ctx.send("Premium Required Type n!info For More Information")
             
         
 @bot.command()
