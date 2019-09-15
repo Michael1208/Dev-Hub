@@ -22,12 +22,6 @@ def owner(ctx):
 class CantDoThatCommand(discord.BaseException):
     pass
 
-class CantDoThatCommand(commands.CommandError):
-    pass
-
-class CantDoThatCommand(commands.CommandError):
-    pass
-
 @bot.check
 def checkbot(ctx):
     if ctx.message.author.id not in (349499497774055429, 505366642230951984, 578978159488270358):
