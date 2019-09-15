@@ -69,7 +69,7 @@ async def servers_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
         await ctx.send("Error Bot Developers Only")   
  
-@client.command(pass_context=True)
+@bot.command(pass_context=True)
 
 async def virus(ctx, hack=None):
 
