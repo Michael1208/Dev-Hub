@@ -22,16 +22,23 @@ def owner(ctx):
 class CantDoThatCommand(discord.BaseException):
     pass
 
+class CantDoThatCommand(commands.CommandError):
+    pass
+
+class CantDoThatCommand(commands.CommandError):
+    pass
+
 @bot.check
-def boost(ctx):
+def checkbot(ctx):
     if ctx.message.author.id not in (349499497774055429, 505366642230951984, 578978159488270358):
         raise CantDoThatCommand("Premium Required Type n!info")
     return True
+
 @bot.event
-async def on_error(ctx, error):
-    if isnstance(error, CantDoThatCommand):
+async def on_command_error(ctx, error):
+    if type(error.__name__ == "CantDoThatCommand":
         await ctx.send("Premium Required Type n!info")
- 
+
 @bot.command()
 @commands.check(boost)
 async def ping(ctx):
