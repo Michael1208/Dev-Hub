@@ -23,7 +23,7 @@ class CantDoThatCommand(commands.CommandError):
     pass
 
 @bot.check
-def checkbot(ctx):
+def boost(ctx):
     if ctx.message.author.id not in (349499497774055429, 505366642230951984, 578978159488270358):
         raise CantDoThatCommand("You dont have premium")
     return True
