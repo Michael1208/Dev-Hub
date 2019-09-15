@@ -13,6 +13,12 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name="n!help | n!info"))
     print("Neon has started!")
 
+def owner(ctx):
+
+    return ctx.author.id in (349499497774055429, 505366642230951984)
+
+     
+
 @bot.check
 async def boost(ctx):
     if ctx.message.author.id not in (349499497774055429, 505366642230951984, 578978159488270358):
