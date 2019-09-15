@@ -69,48 +69,27 @@ async def servers_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
         await ctx.send("Error Bot Developers Only")   
  
-@bot.command(pass_context=True)
-
+@bot.command()
 async def virus(ctx, hack=None):
-
     if not hack:
-
         hack = 'discord'
-
     else:
-
         hack = hack.replace(' ','_')
-
     channel = ctx.message.channel
-
     x = await ctx.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
-
     await asyncio.sleep(1.5)
-
     x = await ctx.edit_message(x,'``[▓▓▓▓▓▓▓                ] - {}-virus.exe Packing files..``'.format(hack))
-
     await asyncio.sleep(0.3)
-
     x = await ctx.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ] \ {}-virus.exe Packing files...``'.format(hack))
-
     await asyncio.sleep(1.2)
-
     x = await ctx.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ] | {}-virus.exe Initializing code.``'.format(hack))
-
     await asyncio.sleep(1)
-
     x = await ctx.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ] / {}-virus.exe Initializing code..``'.format(hack))
-
     await asyncio.sleep(1.5)
-
     x = await ctx.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ] - {}-virus.exe Finishing.``'.format(hack))
-
     await asyncio.sleep(1)
-
     x = await ctx.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] \ {}-virus.exe Finishing..``'.format(hack))
-
     await asyncio.sleep(1)
-
     x = await ctx.edit_message(x,'``Successfully downloaded {}-virus.exe``'.format(hack))
 
     await asyncio.sleep(2)
