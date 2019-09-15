@@ -44,12 +44,10 @@ async def ping(ctx):
  
 @bot.command()
 async def help(ctx):
-    embed=discord.Embed(title="Neon Premium", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
+    embed=discord.Embed(title="Neon Premium Bot", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/618440592459956224/621380992988348421/national.jpg")
-    embed.add_field(name="Music" , value="Music Commands", inline=True)
-    embed.add_field(name="Commands Here", value="Command", inline=True)
-    embed.add_field(name="Economy", value="Economy Commands" , inline=True)
-    embed.add_field(name="Commands Here", value="Command", inline=True)
+    embed.add_field(name="General" , value="General Commands", inline=True)
+    embed.add_field(name="n!ping" , value="Displays Bot Latency", inline=True)
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
  
