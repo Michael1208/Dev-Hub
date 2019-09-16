@@ -73,6 +73,8 @@ async def servers_error(ctx, error):
 @commands.check(boost)
 async def dm(ctx, user: discord.Member, *, msg):
     dm = await user.create_dm()
-    await dm.send(f"Sent By: {user.name}\nFrom Server: {ctx.guild.name}\nMessage: {msg}")       
+    await dm.send(f"Sent By: {ctx.author.name}\nFrom Server: {ctx.guild.name}\nMessage: {msg}") 
+    await ctx.send(f"Message Sent")
+    await ctx.message.delete()
      
 bot.run(os.environ['TOKEN'])
