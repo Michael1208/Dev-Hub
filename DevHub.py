@@ -24,7 +24,7 @@ class CantDoThatCommand(commands.CommandError):
 
 @bot.check
 def boost(ctx):
-    if ctx.message.author.id not in (349499497774055429, 505366642230951984, 578978159488270358):
+    if ctx.message.author.id not in (349499497774055429, 505366642230951984, 578978159488270358, 333972753659068416):
         raise CantDoThatCommand("Premium Required Type n!info")
     return True
 
