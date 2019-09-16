@@ -13,6 +13,11 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name="n!help | n!info"))
     print("Neon has started!")
 
+@client.event
+async def on_command_error(ctx, error):
+	if isinstance(error, commands.MissingRequiredArgument):
+		await ctx.send('Missing Required Arguments')
+
 def owner(ctx):
 
     return ctx.author.id in (349499497774055429, 505366642230951984)
@@ -21,7 +26,7 @@ def boost(ctx):
     
     return ctx.message.author.id in (349499497774055429, 505366642230951984, 578978159488270358, 333972753659068416)
             
-        
+#--------------------------------------------------------------------------------------------------------------------------#
 @bot.command()
 @commands.check(boost)
 async def ping(ctx):
