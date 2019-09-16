@@ -41,6 +41,7 @@ async def help(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/618440592459956224/621380992988348421/national.jpg")
     embed.add_field(name="General" , value="General Commands", inline=True)
     embed.add_field(name="n!ping" , value="Displays Bot Latency", inline=True)
+    embed.add_field(name="n!dm", value="Dm Mentioned User A Message", inline=True)
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
  
