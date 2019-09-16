@@ -69,8 +69,8 @@ async def servers_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
         await ctx.send("Error Bot Developers Only")
 
- @client.command()
- @commands.check(boost)
+@client.command()
+@commands.check(boost)
  async def dm(ctx, user: discord.Member, *, msg):
     dm = await user.create_dm()
     await dm.send(f"Sent By: {user.name}\nFrom Server: {ctx.guild.name}\nMessage: {msg}")       
