@@ -73,6 +73,5 @@ async def dm(ctx, user: discord.Member, *, msg):
 async def dm_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
         await ctx.send("Premium Required Type n!info")
- 
-     
+   
 bot.run(os.environ['TOKEN'])
