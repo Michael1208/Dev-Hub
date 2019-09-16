@@ -17,21 +17,9 @@ def owner(ctx):
 
     return ctx.author.id in (349499497774055429, 505366642230951984)
 
-     
-
-class CantDoThatCommand(commands.CommandError):
-    pass
-
-@bot.check
 def boost(ctx):
-    if ctx.message.author.id not in (349499497774055429, 505366642230951984, 578978159488270358, 333972753659068416):
-        raise CantDoThatCommand("Premium Required Type n!info")
-    return True
-
-@bot.event
-async def on_command_error(ctx, error):
-    if type(error).__name__ == "CantDoThatCommand":
-        await ctx.send("Premium Required Type n!info For More Information")
+    
+    return ctx.message.author.id in (349499497774055429, 505366642230951984, 578978159488270358, 333972753659068416)
             
         
 @bot.command()
@@ -41,6 +29,11 @@ async def ping(ctx):
     embed = discord.Embed(title="Neon Premium's Ping!", color=0x0084FD)
     embed.add_field(name="Ping Latency", value="{} ms".format(int(ctx.bot.latency*1000)))
     await ctx.send(embed=embed)
+@ping.error
+async def ping_error(ctx, error):
+    if isinstance(error, commands.CheckFailure):
+        await ctx.send("Premium Required Type n!info")
+ 
  
 @bot.command()
 async def help(ctx):
@@ -76,5 +69,10 @@ async def dm(ctx, user: discord.Member, *, msg):
     await dm.send(f"Sent By: {ctx.author.name}\nFrom Server: {ctx.guild.name}\nMessage: {msg}") 
     await ctx.send(f"Message Sent")
     await ctx.message.delete()
+@dm.error
+async def dm_error(ctx, error):
+    if isinstance(error, commands.CheckFailure):
+        await ctx.send("Premium Required Type n!info")
+ 
      
 bot.run(os.environ['TOKEN'])
