@@ -125,7 +125,7 @@ async def serverinfo(ctx):
     embed.add_field(name="AFK Timeout", value=guild.afk_timeout)
     embed.add_field(name="Verification Level", value=guild.verification_level)
     await ctx.send(embed=embed)      
- @serverinfo.error
+@serverinfo.error
 async def serverinfo_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
         await ctx.send("Premium Required Type n!info")   
