@@ -10,7 +10,7 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():        
-    await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name="n!help | n!info"))
+    await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name="n!help | n!info | n!invite"))
     print("Neon has started!")
 
 @bot.event
