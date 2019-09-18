@@ -45,8 +45,11 @@ async def help(ctx):
     embed=discord.Embed(title="Neon Premium Bot", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/618440592459956224/621380992988348421/national.jpg")
     embed.add_field(name="General" , value="General Commands", inline=True)
+    embed.add_feild(name="n!help", value="Shows This Message", inline=True)            
     embed.add_field(name="n!ping" , value="Displays Bot Latency", inline=True)
     embed.add_field(name="n!dm", value="Dm Mentioned User A Message", inline=True)
+    embed.add_field(name="n!invite", value="Displays Bot Invite", inline=True)
+    embed.add_field(name="n!avatar", value="Shows Mentioned Users Avatar", inline=True)                 
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
  
@@ -86,7 +89,18 @@ async def invite(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/618579099237220366/462cebed57fea3bad062f9982aa5fc02.png?")
     embed.add_field(name='**Invite Neon**', value="[Invite Neon](https://discordapp.com/oauth2/authorize?client_id=618579099237220366&scope=bot&permissions=2146958847)", inline=False)
     embed.add_field(name='**Support Server**', value="[Support](https://discord.gg/WqtTxNV)", inline=False)
-    await ctx.send(embed=embed)	
-			
+    await ctx.send(embed=embed)
+   
+@bot.command()
+@commands.check(boost)
+async def avatar(ctx, member: discord.Member):
+	embed = discord.Embed(colour=member.color, timestamp=ctx.message.created_at)
+	embed.set_author(name=f"Avatar Of {member}")
+	embed.set_image(url=member.avatar_url)
+	await ctx.send(embed=embed)	
+@avatar.error
+async def avatar_error(ctx, error):
+    if isinstance(error, commands.CheckFailure):
+        await ctx.send("Premium Required Type n!info")
 			   
 bot.run(os.environ['TOKEN'])
