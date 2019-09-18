@@ -49,7 +49,8 @@ async def help(ctx):
     embed.add_field(name="n!ping" , value="Displays Bot Latency", inline=True)
     embed.add_field(name="n!dm", value="Dm Mentioned User A Message", inline=True)
     embed.add_field(name="n!invite", value="Displays Bot Invite", inline=True)
-    embed.add_field(name="n!avatar", value="Shows Mentioned Users Avatar", inline=True)                 
+    embed.add_field(name="n!avatar", value="Shows Mentioned Users Avatar", inline=True)   
+    embed.add_field(name="n!serverinfo",value="Displays Server Stats", inline=True)
     embed.set_footer(text="Neon™ Premium Bot")
     await ctx.send(embed=embed)
  
@@ -102,5 +103,31 @@ async def avatar(ctx, member: discord.Member):
 async def avatar_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
         await ctx.send("Premium Required Type n!info")
+        
+@bot.command()  
+@commands.check(boost)  
+async def serverinfo(ctx):
+    guild = ctx.message.guild
+    online = len([m.status for m in guild.members if m.status == discord.Status.online or m.status == discord.Status.idle])
+    embed = discord.Embed(name="{} Server information".format(guild.name), color=0x6AA84F)
+    embed.set_thumbnail(url=guild.icon_url)
+    embed.add_field(name="Server Name", value=guild.name, inline=True)
+    embed.add_field(name="Owner", value=guild.owner.mention)
+    embed.add_field(name="Server ID", value=guild.id, inline=True)
+    embed.add_field(name="Roles", value=len(guild.roles), inline=True)
+    embed.add_field(name="Members", value=len(guild.members), inline=True)
+    embed.add_field(name="Online", value=f"**{online}/{len(guild.members)}**")
+    embed.add_field(name="Guild Created At", value=guild.created_at.strftime("%d %b %Y %H:%M"))
+    embed.add_field(name="Emojis", value=f"{len(guild.emojis)}/100")
+    embed.add_field(name="Server Region", value=str(guild.region).title())
+    embed.add_field(name="Total Channels", value=len(guild.channels))
+    embed.add_field(name="AFK Channel", value=str(guild.afk_channel))
+    embed.add_field(name="AFK Timeout", value=guild.afk_timeout)
+    embed.add_field(name="Verification Level", value=guild.verification_level)
+    await ctx.send(embed=embed)      
+ @serverinfo.error
+async def serverinfo_error(ctx, error):
+    if isinstance(error, commands.CheckFailure):
+        await ctx.send("Premium Required Type n!info")   
 			   
 bot.run(os.environ['TOKEN'])
