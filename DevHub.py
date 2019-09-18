@@ -45,7 +45,7 @@ async def help(ctx):
     embed=discord.Embed(title="Neon Premium Bot", url="https://discord.gg/WqtTxNV", color=0xbd00c7)
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/618440592459956224/621380992988348421/national.jpg")
     embed.add_field(name="General" , value="General Commands", inline=True)
-    embed.add_feild(name="n!help", value="Shows This Message", inline=True)            
+    embed.add_field(name="n!help", value="Shows This Message", inline=True)            
     embed.add_field(name="n!ping" , value="Displays Bot Latency", inline=True)
     embed.add_field(name="n!dm", value="Dm Mentioned User A Message", inline=True)
     embed.add_field(name="n!invite", value="Displays Bot Invite", inline=True)
