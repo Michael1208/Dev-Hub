@@ -79,5 +79,13 @@ async def dm(ctx, user: discord.Member, *, msg):
 async def dm_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
         await ctx.send("Premium Required Type n!info")
-   
+
+@bot.command()
+async def invite(ctx):
+    embed = discord.Embed(title="Neon Premium - Invites", color=0x6AA84F)
+    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/616619124730363924/6721a098ceee307c2a32ba8de4332ff0.png?")
+    embed.add_field(name='**Invite Neon**', value="[Invite Neon](https://discordapp.com/oauth2/authorize?client_id=618579099237220366&scope=bot&permissions=2146958847)", inline=False)
+    embed.add_field(name='**Support Server**', value="[Support](https://discord.gg/WqtTxNV)", inline=False)    await ctx.send(embed=embed)	
+			
+			   
 bot.run(os.environ['TOKEN'])
